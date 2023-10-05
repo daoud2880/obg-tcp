@@ -9,21 +9,21 @@ def handleClient(connectionSocket, addr):
     sentenceSplit = sentence.split(";",2)
     if "Random" == sentenceSplit[0]:
         sentence=str(random.randrange(int(sentenceSplit[1]),int(sentenceSplit[2])))
-        print(sentence)
         connectionSocket.send(sentence.encode())
+        print(sentence)
     
     sentenceSplit = sentence.split(";",2)
     if "Add" == sentenceSplit[0]:
         result = int(sentenceSplit[1]) + int(sentenceSplit[2])
         sentence = str(result)
-        print(sentence)
         connectionSocket.send(sentence.encode())
+        print(sentence)
     
     sentenceSplit = sentence.split(";",2)
     if "Subtract" == sentenceSplit[0]:
         sentence = str(int(sentenceSplit[1]) - int((sentenceSplit[2])))
-        print(sentence)
         connectionSocket.send(sentence.encode())
+        print(sentence)
     
     
     while sentence != "exit".strip():
